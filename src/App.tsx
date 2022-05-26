@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { StyledComponent } from '@emotion/styled';
+import { Layout } from 'antd';
+import { BasicProps } from 'antd/lib/layout/layout';
+import { Provider } from 'react-redux';
+import './App.less';
+import { FilterCard } from './components/FilterCard';
+import { Jobs } from './components/Jobs';
+import store from './store/store';
 
-function App() {
+const { Header, Content, Footer } = Layout;
+
+const Head: StyledComponent<BasicProps> = styled(Header)`
+  background: url(/images/bg-header-desktop.svg);
+  width: 100%;
+  height: 150px;
+  z-index: 0;
+  background-color: hsl(180, 29%, 50%);
+`;
+
+const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Provider store={store}>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Head />
+        <Content>
+          <FilterCard />
+          <Jobs />
+        </Content>
+        <Footer style={{
+          textAlign: 'center',
+        }}>
+          <div className="attribution">
+            Challenge by <a href="https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt" target="_blank" rel="noreferrer">Frontend Mentor</a>.
+            Coded by <a href="https://www.linkedin.com/in/billy-enrique-herculano-madrid-4b3655168/" target="_blank" rel="noreferrer">Billy Herculano</a>.
+          </div>
+        </Footer>
+      </Layout>
+    </Provider>
+  )
+};
+
 
 export default App;
