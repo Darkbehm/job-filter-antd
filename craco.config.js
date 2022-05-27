@@ -13,7 +13,7 @@ module.exports = {
               '@link-color': 'hsl(180, 29%, 50%)',
               '@font-family': '"League Spartan"',
               '@font-weight': '500',
-              '@font-size-base': '15px'
+              '@font-size-base': '15px',
             },
             javascriptEnabled: true,
           },

@@ -23,22 +23,22 @@ type job = {
 }
 
 
-export const Jobs = ():JSX.Element => {
-  const filtersArray:string[] = useAppSelector((state) => state.filters);
+export const Jobs = (): JSX.Element => {
+  const filtersArray: string[] = useAppSelector((state) => state.filters);
 
-  const filteredJobs:Array<job> = data.filter((job) => {
+  const filteredJobs: Array<job> = data.filter((job): boolean => {
     const filters = [job.role, job.level, ...job.languages, ...job.tools];
-    return filtersArray.every(filter => {
+    return filtersArray.every((filter): boolean => {
       return filters.includes(filter);
     });
   });
-    
+
   return (
-    <List 
-          dataSource={filteredJobs}
-          renderItem={item => (
-            <JobCard job={item} />
-          )}
-        />
+    <List
+      dataSource={filteredJobs}
+      renderItem={item => (
+        <JobCard job={item} />
+      )}
+    />
   )
 }

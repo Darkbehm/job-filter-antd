@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../hooks';
 import { removeFilter, clearFilters } from '../reducers/filterSlice';
 
 
-const Box: StyledComponent<CardProps> = styled(Card) <CardProps>`
+const Box: StyledComponent<CardProps> = styled(Card)`
   padding: 0 0 0 0;
   font-weight: 700;
   background: #fff;

@@ -22,12 +22,15 @@ const App = (): JSX.Element => {
     <Provider store={store}>
       <Layout style={{ minHeight: "100vh" }}>
         <Head />
-        <Content>
+        <Content style={{
+          background: "hsl(180, 52%, 96%)"
+        }}>
           <FilterCard />
           <Jobs />
         </Content>
         <Footer style={{
           textAlign: 'center',
+          background: "hsl(180, 52%, 96%)"
         }}>
           <div className="attribution">
             Challenge by <a href="https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt" target="_blank" rel="noreferrer">Frontend Mentor</a>.

@@ -6,7 +6,7 @@ import { useAppDispatch } from '../hooks/';
 import { addFilter } from '../reducers/filterSlice';
 
 type BoxProps = {
-  featured: boolean;
+  featured: 0 | 1;
 } & CardProps;
 
 
@@ -15,7 +15,7 @@ const Box: StyledComponent<BoxProps> = styled(Card) <BoxProps>`
   margin: 30px 10% 30px 10%;
   border-radius: 8px;
   box-shadow: hsl(180, 29%, 80%) 0px 13px 27px -5px, hsl(180, 8%, 52%) 0px 8px 16px -8px;
-  border-left:${props => props.featured ? '5px solid hsl(180, 29%, 50%)' : '5px solid hsl(180, 29%, 100%)'} ;
+  border-left:${props => props.featured===1 ? '5px solid hsl(180, 29%, 50%)' : '5px solid hsl(180, 29%, 100%)'} ;
   @media (max-width:700px){
     margin: 45px 20px 20px 20px;
     flex-direction: column;
@@ -163,7 +163,7 @@ const JobCard = ({ job }: ListItemProps): JSX.Element => {
   }
 
   return (
-    <Box featured={job.featured}>
+    <Box featured={job.featured ? 1 : 0}>
       <Fila justify="space-between" align="middle" wrap={false}>
         <Col flex={"500px"}>
           <InnerBox>
